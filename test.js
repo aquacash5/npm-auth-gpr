@@ -7,7 +7,7 @@ const run = async () => {
 
   try {
     const fileContent = await readFile(`.npmrc`);
-    if (!fileContent.endsWith(token))
+    if (!fileContent.toString().endsWith(token))
       throw new Error(`Token not found in .npmrc file`);
   } catch (error) {
     core.setFailed(error.message);
